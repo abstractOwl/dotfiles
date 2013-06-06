@@ -24,7 +24,6 @@ color molokai
 
 " Powerline stuff
 set laststatus=2
-set g:Powerline_symbols='fancy'
 
 " Vundle commands
 set rtp+=~/.vim/bundle/vundle

@@ -7,9 +7,9 @@ This `.vimrc` uses the Vundle plugin manager which you will need to grab from he
 Automate the installation with the `setup.sh` script included!
 
 ## Plugins
-`vundle` -- Plugin manager
-`molokai` -- Playful colorscheme
-`jellybeans` -- Extra colorscheme for noctural coding
-`vim-easymotion` -- For zooming through documents
-`scrooloose/syntastic` -- Catch those pesky syntax errors
-`vim-powerline` -- Shiny status bar
+* `vundle` -- Plugin manager
+* `molokai` -- Playful colorscheme
+* `jellybeans` -- Extra colorscheme for noctural coding
+* `vim-easymotion` -- For zooming through documents
+* `scrooloose/syntastic` -- Catch those pesky syntax errors
+* `vim-powerline` -- Shiny status bar
