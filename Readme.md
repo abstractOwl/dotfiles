@@ -2,9 +2,7 @@
 Mostly for sync-ing between computers, but feel free to use/steal!
 
 ## Installation
-This `.vimrc` uses the Vundle plugin manager which you will need to grab from here https://github.com/gmarik/vundle. After that, type `:BundleInstall` into Vim and it'll do the rest!
-
-Automate the installation with the `setup.sh` script included!
+Just run `setup.sh` and it'll do the rest!
 
 ## Plugins
 * `vundle` -- Plugin manager
