@@ -2,10 +2,13 @@
 
 CAN_INSTALL="y" # TRUE if not found
 
+echo ".vimrc - by abstractOwl. Enjoy!"
+echo
+
 # Check for existence of .vimrc
 if [ -f ~/.vimrc ]; then
     # Overwrite?
-    read -p "-- ~/.vimrc already exists. Overwrite? [y/N] " CAN_INSTALL
+    read -p '-- File "~/.vimrc" already exists. Overwrite? [y/N] ' CAN_INSTALL
 fi
 
 # Copy over our version
@@ -29,7 +32,7 @@ if [ ! -f ~/.vim/bundle/vundle/README.md ]; then
     mkdir -p ~/.vim/bundle > /dev/null 2>&1
 
     echo " -> Clone GitHub repository"
-    git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle > /dev/null
+    git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle > /dev/null 2>&1
 fi
 
 # Auto install bundles

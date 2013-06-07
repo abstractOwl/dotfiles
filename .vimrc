@@ -4,6 +4,21 @@
 set nocompatible
 filetype off "req'd for vundle
 
+" Vundle commands
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'tomasr/molokai'
+Bundle 'nanotech/jellybeans.vim'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'scrooloose/syntastic'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'editorconfig/editorconfig-vim'
+
+filetype plugin on
+filetype plugin indent on
+
 " set screen
 set ruler mousehide
 
@@ -20,21 +35,7 @@ set incsearch hlsearch
 syntax on
 set t_Co=256
 set background=dark
-color molokai
+silent! color molokai
 
 " Powerline stuff
 set laststatus=2
-
-" Vundle commands
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
-
-Bundle 'gmarik/vundle'
-Bundle 'molokai'
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'scrooloose/syntastic'
-Bundle 'Lokaltog/vim-powerline'
-
-filetype plugin on
-filetype plugin indent on
