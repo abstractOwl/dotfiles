@@ -1,4 +1,4 @@
-# My `.vimrc` backup
+# my snazzy `.vimrc`
 Mostly for sync-ing between computers, but feel free to use/steal!
 
 ## Installation
