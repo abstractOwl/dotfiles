@@ -15,7 +15,7 @@ fi
 if [ "$CAN_INSTALL" = "y" ]; then
     # Copy .vimrc over
     echo " -> Copying .vimrc to ~/.vimrc..."
-    cp .vimrc ~/.vimrc
+    cp vimrc ~/.vimrc
 else
     echo "-- Aborting!"
     exit
