@@ -13,8 +13,10 @@ Bundle 'tomasr/molokai'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/nerdtree'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'editorconfig/editorconfig-vim'
+Bundle 'git://git.wincent.com/command-t.git'
 
 filetype plugin on
 filetype plugin indent on
@@ -30,6 +32,11 @@ set showmatch matchpairs+=<:>
 
 "search options
 set incsearch hlsearch
+
+"misc
+set showmatch
+set showcmd
+set hidden
 
 " Molokai
 syntax on
