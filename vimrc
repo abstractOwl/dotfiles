@@ -4,6 +4,8 @@
 set nocompatible
 filetype off "req'd for vundle
 
+runtime macros/matchit.vim
+
 " Vundle commands
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
@@ -23,20 +25,28 @@ filetype plugin indent on
 
 " set screen
 set ruler mousehide
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> [B :blast<CR>
 
 " set formatting
 set encoding=utf-8
-set tabstop=4 shiftwidth=4 expandtab
+set ts=4 sw=4 sts=4 et
 set cindent
 set showmatch matchpairs+=<:>
 
-"search options
+" search options
 set incsearch hlsearch
 
-"misc
+" save file as root
+cmap w!! w !sudo tee > /dev/null %
+
+" misc
 set showmatch
 set showcmd
 set hidden
+set wildmode=longest,list
 
 " Molokai
 syntax on
@@ -46,3 +56,4 @@ silent! color molokai
 
 " Powerline stuff
 set laststatus=2
+
