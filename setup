@@ -12,7 +12,7 @@
 # Declare variables
 can_install="y" # TRUE if not found
 
-INSTALL_DIR="~"
+INSTALL_DIR=$HOME
 LOCAL_DIR="./dot_files"
 
 declare -a existing_files # Array used by files_exist()
@@ -45,7 +45,7 @@ files_exist()
 
     for file in ${files_array[@]}
     do
-        if [ -f $file ]; then
+        if [ -f "$INSTALL_DIR/$file" ]; then
             existing_files+=( $file );
         fi
     done
@@ -151,9 +151,9 @@ install_zsh()
 
     if [ "$can_install" = "y" ]; then
         # Install oh-my-zsh
-        if [ ! -d $INSTALL_DIR/.oh-my-zsh]; then
+        if [ ! -d $INSTALL_DIR/.oh-my-zsh ]; then
             echo "-- Installing oh-my-zsh..."
-            git clone https://github.com/robby-russel/oh-my-zsh.git \
+            git clone https://github.com/robbyrussell/oh-my-zsh \
                 $INSTALL_DIR/.oh-my-zsh
         fi
 
@@ -161,8 +161,10 @@ install_zsh()
         echo " -> Copying .zshrc to $INSTALL_DIR/.zshrc..."
         copy_files ZSH[@]
 
+        echo "export PATH=\$PATH:$PATH" >> $INSTALL_DIR/.zshrc
+
         echo " -> Changing default shell to zsh..."
-        chsh -s /bin/zsh
+        chsh -s `which zsh`
 
         # Add extra setup things later if needed
 
