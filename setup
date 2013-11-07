@@ -136,10 +136,11 @@ install_vim()
 # Installs zsh dotfiles.
 install_zsh()
 {
+    local zsh_dir=`which zsh`
     can_install="y" # Reset value
-    if [ -f /bin/zsh ]; then
+    if [ "$zsh_dir" = "" ]; then
         echo "-- You do not have zsh installed."
-        $can_install = "n"
+        can_install="n"
     fi
 
     if [ "$can_install" = "y" ]; then
