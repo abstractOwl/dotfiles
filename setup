@@ -155,7 +155,7 @@ install_zsh()
         if [ ! -d $INSTALL_DIR/.oh-my-zsh ]; then
             echo "-- Installing oh-my-zsh..."
             git clone https://github.com/robbyrussell/oh-my-zsh \
-                $INSTALL_DIR/.oh-my-zsh
+                $INSTALL_DIR/.oh-my-zsh > /dev/null 2>&1
         fi
 
         # Copy .zshrc over
