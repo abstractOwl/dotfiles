@@ -1,13 +1,10 @@
-# my snazzy `.vimrc`
-Mostly for sync-ing between computers, but feel free to use/steal!
+# dotfiles
+Automated script for syncing my dotfiles between computers.  Feel free to use/steal/fork.
 
 ## Installation
-Just run `setup.sh` and it'll do the rest!
+Just run `setup.sh` and it'll do the rest.
 
-## Plugins
-* `vundle` -- Plugin manager
-* `molokai` -- Playful colorscheme
-* `jellybeans` -- Extra colorscheme for noctural coding
-* `vim-easymotion` -- For zooming through documents
-* `scrooloose/syntastic` -- Catch those pesky syntax errors
-* `vim-powerline` -- Shiny status bar
+At the moment, this script sets up:
+* oh-my-zsh
+* vim with vundle
+* tmux (binds leader key to ctrl-A like screen)

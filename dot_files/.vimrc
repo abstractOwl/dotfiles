@@ -57,3 +57,6 @@ silent! color molokai
 " Powerline stuff
 set laststatus=2
 
+" Remove vim bg when using transparent term
+" hi Normal ctermbg=NONE
+
