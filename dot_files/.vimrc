@@ -50,6 +50,7 @@ set wildmode=longest,list
 
 " Molokai
 syntax on
+set t_ut=
 set t_Co=256
 set background=dark
 silent! color molokai
