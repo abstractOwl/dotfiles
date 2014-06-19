@@ -10,6 +10,7 @@ runtime macros/matchit.vim
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
+"Bundle 'flazz/vim-colorschemes'
 Bundle 'gmarik/vundle'
 Bundle 'tomasr/molokai'
 Bundle 'nanotech/jellybeans.vim'
@@ -53,10 +54,30 @@ syntax on
 set t_ut=
 set t_Co=256
 set background=dark
-silent! color molokai
+silent! color jellybeans
 
 " Powerline stuff
 set laststatus=2
+
+" Color when exceeding 80 columns
+highlight ColorColumn ctermbg=yellow
+call matchadd('ColorColumn', '\%81v', 100)
+
+" Highlight next match
+nnoremap <silent> n   n:call HLNext(0.4)<cr>
+nnoremap <silent> N   N:call HLNext(0.4)<cr>
+
+function! HLNext (blinktime)
+    set invcursorline
+    redraw
+    exec 'sleep ' . float2nr(a:blinktime * 500) . 'm'
+    set invcursorline
+    redraw
+endfunction
+
+" Highlight tabs and trailing whitespace
+exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+set list
 
 " Remove vim bg when using transparent term
 " hi Normal ctermbg=NONE
