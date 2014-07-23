@@ -11,6 +11,7 @@ set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
 "Bundle 'flazz/vim-colorschemes'
+Bundle 'tpope/vim-endwise'
 Bundle 'gmarik/vundle'
 Bundle 'tomasr/molokai'
 Bundle 'nanotech/jellybeans.vim'
