@@ -3,10 +3,8 @@
 
 APT_PREF="apt-get"
 
+# Install packages
+pkg_list=$(cat config/packages/*.list)
 sudo $APT_PREF -y update
-while read package; do
-    echo "Installing $package..."
-    sudo $APT_PREF -y install $package
-    echo
-done < "config/packages.txt"
+sudo $APT_PREF -y install $pkg_list
 
