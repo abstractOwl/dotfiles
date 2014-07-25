@@ -10,7 +10,6 @@ runtime macros/matchit.vim
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
-"Bundle 'flazz/vim-colorschemes'
 Bundle 'gmarik/vundle'
 Bundle 'tomasr/molokai'
 Bundle 'nanotech/jellybeans.vim'
@@ -19,7 +18,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'editorconfig/editorconfig-vim'
-Bundle 'git://git.wincent.com/command-t.git'
+"Bundle 'git://git.wincent.com/command-t.git'
 
 filetype plugin on
 filetype plugin indent on
@@ -30,6 +29,9 @@ nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> [B :blast<CR>
+
+" unmap command history
+map q: <nop>
 
 " set formatting
 set encoding=utf-8
@@ -80,9 +82,9 @@ exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 set list
 
 " Toggle numbering style (absolute in Insert mode, relative everywhere else)
-set relativenumber
-autocmd InsertEnter * :set number
-autocmd InsertLeave * :set relativenumber
+set relativenumber nonumber
+autocmd InsertEnter * :set norelativenumber number
+autocmd InsertLeave * :set relativenumber  nonumber
 
 " Remove vim bg when using transparent term
 " hi Normal ctermbg=NONE
