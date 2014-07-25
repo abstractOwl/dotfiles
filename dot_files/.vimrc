@@ -33,6 +33,9 @@ nnoremap <silent> [B :blast<CR>
 " unmap command history
 map q: <nop>
 
+" map Leader to space
+let mapleader = "\<SPACE>"
+
 " set formatting
 set encoding=utf-8
 set ts=4 sw=4 sts=4 et
@@ -60,6 +63,9 @@ silent! color jellybeans
 
 " Powerline stuff
 set laststatus=2
+
+" EasyMotion
+map <Leader> <Plug>(easymotion-prefix)
 
 " Color when exceeding 80 columns
 highlight ColorColumn ctermbg=yellow
