@@ -1,3 +1,4 @@
 #
 # File containing ZSH aliases
 #
+alias ack="/usr/bin/ag"

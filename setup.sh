@@ -165,7 +165,7 @@ install_zsh()
         echo "export PATH=\$PATH:$PATH" >> $INSTALL_DIR/.zshrc
 
         # Add in custom theme
-        cp ember.zsh-theme ~/.oh-my-zsh/themes/
+        cp config/ember.zsh-theme ~/.oh-my-zsh/themes/
 
         echo " -> Changing default shell to zsh..."
         chsh -s `which zsh`

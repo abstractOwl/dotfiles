@@ -1,0 +1,4 @@
+tmux
+vim
+git
+ruby
