@@ -79,6 +79,11 @@ endfunction
 exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 set list
 
+" Toggle numbering style (absolute in Insert mode, relative everywhere else)
+set relativenumber
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+
 " Remove vim bg when using transparent term
 " hi Normal ctermbg=NONE
 
