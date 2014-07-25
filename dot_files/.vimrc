@@ -18,6 +18,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'editorconfig/editorconfig-vim'
+Bundle 'Raimondi/delimitMate'
 "Bundle 'git://git.wincent.com/command-t.git'
 
 filetype plugin on
