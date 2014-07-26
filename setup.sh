@@ -116,7 +116,7 @@ install_vim()
             mkdir -p $INSTALL_DIR/.vim/bundle > /dev/null 2>&1
 
             echo " -> Clone GitHub repository"
-            git clone https://github.com/gmarik/vundle \
+            git clone https://github.com/gmarik/Vundle.vim \
                 $INSTALL_DIR/.vim/bundle/vundle > /dev/null 2>&1
         fi
 

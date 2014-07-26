@@ -7,19 +7,27 @@ filetype off "req'd for vundle
 runtime macros/matchit.vim
 
 " Vundle commands
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
-Bundle 'tomasr/molokai'
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'scrooloose/syntastic'
-Bundle 'scrooloose/nerdtree'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'editorconfig/editorconfig-vim'
-Bundle 'Raimondi/delimitMate'
-"Bundle 'git://git.wincent.com/command-t.git'
+Plugin 'gmarik/Vundle.vim'
+
+"Plugins
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'scrooloose/syntastic'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'Raimondi/delimitMate'
+Plugin 'kien/ctrlp.vim'
+Plugin 'matchit.zip'
+"Plugin 'scrooloose/nerdtree'
+"Plugin 'git://git.wincent.com/command-t.git'
+
+"Themes
+Plugin 'tomasr/molokai'
+Plugin 'nanotech/jellybeans.vim'
+
+call vundle#end()
 
 filetype plugin on
 filetype plugin indent on
@@ -36,6 +44,11 @@ map q: <nop>
 
 " map Leader to space
 let mapleader = "\<SPACE>"
+
+" CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
 
 " set formatting
 set encoding=utf-8
