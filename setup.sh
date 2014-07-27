@@ -109,7 +109,7 @@ install_vim()
         copy_files VIM[@]
 
         # Install Vundle
-        if [ ! -f $INSTALL_DIR/.vim/bundle/vundle/README.md ]; then
+        if [ ! -f $INSTALL_DIR/.vim/bundle/Vundle.vim/README.md ]; then
             echo "-- Installing Vundle..."
 
             echo " -> Make Vundle directory"
@@ -117,7 +117,7 @@ install_vim()
 
             echo " -> Clone GitHub repository"
             git clone https://github.com/gmarik/Vundle.vim \
-                $INSTALL_DIR/.vim/bundle/vundle > /dev/null 2>&1
+                $INSTALL_DIR/.vim/bundle/Vundle.vim > /dev/null 2>&1
         fi
 
         # Auto install bundles
