@@ -21,6 +21,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'kien/ctrlp.vim'
 Plugin 'matchit.zip'
 "Plugin 'scrooloose/nerdtree'
+Plugin 'rstacruz/sparkup'
 "Plugin 'git://git.wincent.com/command-t.git'
 
 "Themes
