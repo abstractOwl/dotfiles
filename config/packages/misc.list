@@ -2,3 +2,5 @@ ruby
 python
 exuberant-ctags
 ack-grep
+make
+g++
