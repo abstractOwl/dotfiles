@@ -1,5 +1,6 @@
 ruby
-python
+python3
+python-pip
 exuberant-ctags
 ack-grep
 make
