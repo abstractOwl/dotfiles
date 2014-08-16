@@ -21,6 +21,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'kien/ctrlp.vim'
 Plugin 'matchit.zip'
 "Plugin 'scrooloose/nerdtree'
+Plugin 'kovisoft/slimv'
 Plugin 'rstacruz/sparkup'
 "Plugin 'git://git.wincent.com/command-t.git'
 
@@ -110,3 +111,6 @@ autocmd InsertLeave * :set relativenumber  nonumber
 " Remove vim bg when using transparent term
 " hi Normal ctermbg=NONE
 
+" Lisp opts
+au FileType lisp let b:loaded_delimitMate = 0
+let g:lisp_rainbow=1
