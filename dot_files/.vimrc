@@ -1,18 +1,24 @@
-" abstractOwl's vim file
-" ----------------------
+" """""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" .vimrc                                                  "
+"                                                         "
+" author: abstractOwl <https://github.com/abstractOwl>    "
+"                                                         "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"" Enable Vim/Vi incompatibilities
 set nocompatible
+
+
+"" Vundle Plugins """""""""""""""""""""""""""""""""""""""""
 filetype off "req'd for vundle
-
 runtime macros/matchit.vim
-
-" Vundle commands
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 
-"Plugins
+
+"" General Plugins """"""""""""""""""""""""""""""""""""""""
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'scrooloose/syntastic'
 Plugin 'Lokaltog/vim-powerline'
@@ -23,74 +29,95 @@ Plugin 'matchit.zip'
 "Plugin 'scrooloose/nerdtree'
 Plugin 'kovisoft/slimv'
 Plugin 'rstacruz/sparkup'
-"Plugin 'git://git.wincent.com/command-t.git'
+"Plugin 'wincent/command-t'
 
-"Themes
+
+"" Clojure-specific """""""""""""""""""""""""""""""""""""""
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-leiningen'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'guns/vim-clojure-highlight'
+
+
+"" Themes """"""""""""""""""""""""""""""""""""""""""""""""
 Plugin 'tomasr/molokai'
 Plugin 'nanotech/jellybeans.vim'
 
 call vundle#end()
-
 filetype plugin on
 filetype plugin indent on
 
-" set screen
+
+"" Set Opts """"""""""""""""""""""""""""""""""""""""""""""
 set ruler mousehide
-nnoremap <silent> [b :bprevious<CR>
-nnoremap <silent> ]b :bnext<CR>
-nnoremap <silent> [B :bfirst<CR>
-nnoremap <silent> [B :blast<CR>
 
-" unmap command history
-map q: <nop>
+" Search options
+set incsearch hlsearch
 
-" map Leader to space
-let mapleader = "\<SPACE>"
-
-" CtrlP
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-
-" set formatting
+" Set formatting
 set encoding=utf-8
 set ts=4 sw=4 sts=4 et
 set cindent
 set showmatch matchpairs+=<:>
 
-" search options
-set incsearch hlsearch
+"""" Misc
+set showmatch showcmd hidden wildmode=longest,list
 
-" save file as root
+
+"" Mappings """"""""""""""""""""""""""""""""""""""""""""""
+
+"""" Tabs
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> [B :blast<CR>
+
+"""" Map Leader to Space
+let mapleader = "\<SPACE>"
+
+"""" Unmap command history
+map q: <nop>
+
+"""" Save file as root
 cmap w!! w !sudo tee > /dev/null %
 
-" misc
-set showmatch
-set showcmd
-set hidden
-set wildmode=longest,list
 
-" Molokai
+"" Plugin Settings """""""""""""""""""""""""""""""""""""""
+
+"""" CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+
+"""" Molokai
 syntax on
 set t_ut=
 set t_Co=256
 set background=dark
 silent! color jellybeans
 
-" Powerline stuff
+"""" Powerline stuff
 set laststatus=2
 
-" EasyMotion
+"""" EasyMotion
 map <Leader> <Plug>(easymotion-prefix)
 
-" Color when exceeding 80 columns
+"""" Lisp opts
+au FileType lisp let b:loaded_delimitMate = 0
+let g:lisp_rainbow=1
+let g:slimv_disable_clojure=1
+
+
+"" Misc Improvements """"""""""""""""""""""""""""""""""""""
+
+"""" Mark when exceeding 80 columns
 highlight ColorColumn ctermbg=yellow
 call matchadd('ColorColumn', '\%81v', 100)
 
-" Highlight next match
-nnoremap <silent> n   n:call HLNext(0.4)<cr>
-nnoremap <silent> N   N:call HLNext(0.4)<cr>
-
+"""" Visually indicate match clearer
+nnoremap <silent> n n:call HLNext(0.4)<cr>
+nnoremap <silent> N N:call HLNext(0.4)<cr>
 function! HLNext (blinktime)
     set invcursorline
     redraw
@@ -99,18 +126,16 @@ function! HLNext (blinktime)
     redraw
 endfunction
 
-" Highlight tabs and trailing whitespace
+"""" Highlight bad whitespace (tabs and trailing)
 exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 set list
 
-" Toggle numbering style (absolute in Insert mode, relative everywhere else)
+"""" Toggle numbering style
+""""   (absolute in Insert, relative everywhere else)
 set relativenumber nonumber
 autocmd InsertEnter * :set norelativenumber number
 autocmd InsertLeave * :set relativenumber  nonumber
 
-" Remove vim bg when using transparent term
+"""" Remove vim bg when using transparent term
 " hi Normal ctermbg=NONE
 
-" Lisp opts
-au FileType lisp let b:loaded_delimitMate = 0
-let g:lisp_rainbow=1
