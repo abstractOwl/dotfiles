@@ -24,6 +24,8 @@ declare -a ZSH_FILES
 ZSH=(".zshrc" ".zsh_aliases")
 declare -a TMUX_FILES
 TMUX=(".tmux.conf")
+declare -a EMACS_FILES
+EMACS=(".emacs.d/init.el")
 
 # Accepts an array of files ($1) and copies them from $LOCAL_DIR to $INSTALL_DIR
 copy_files()
@@ -91,6 +93,31 @@ install_tmux()
         echo "-- Done!"
     else
         echo "Skipping tmux..."
+    fi
+}
+
+# Installs .emacs dotfile.
+install_emacs()
+{
+    can_install="y" # Reset value
+    files_exist EMACS[@]
+    if [ $? = 1 ]; then
+        prompt_overwrite
+    fi
+
+    if [ "$can_install" = "y" ]; then
+        # Copy .emacs.d over
+        echo " -> Copying emacs files to $INSTALL_DIR..."
+        if [ ! -d $INSTALL_DIR/.emacs.d ]; then
+            mkdir -p $INSTALL_DIR/.emacs.d > /dev/null 2>&1
+        fi
+        copy_files EMACS[@]
+        # Add extra setup things later if needed
+
+        # Done
+        echo "-- Done!"
+    else
+        echo "Skipping emacs..."
     fi
 }
 
