@@ -2,3 +2,9 @@
 # File containing ZSH aliases
 #
 alias ack="/usr/bin/ag"
+
+# Prevent commands from cluttering history
+alias pwd=" pwd $@"
+alias ls=" ls $@"
+alias cd=" cd"
+alias fg=" fg"
