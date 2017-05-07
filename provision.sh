@@ -1,5 +1,5 @@
 #!/bin/bash
-# AWS instance provisioning
+# Script to provision a new Debian-based host
 
 APT_PREF="apt-get"
 
