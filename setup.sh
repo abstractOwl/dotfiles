@@ -25,7 +25,7 @@ ZSH=(".zshrc" ".zsh_aliases")
 declare -a TMUX_FILES
 TMUX=(".tmux.conf")
 declare -a EMACS_FILES
-EMACS=(".emacs.d/init.el")
+EMACS=(".emacs.d")
 
 # Accepts an array of files ($1) and copies them from $LOCAL_DIR to $INSTALL_DIR
 copy_files()
@@ -108,9 +108,6 @@ install_emacs()
     if [ "$can_install" = "y" ]; then
         # Symlink .emacs.d
         echo " -> Symlinking emacs files to $INSTALL_DIR..."
-        if [ ! -d $INSTALL_DIR/.emacs.d ]; then
-            mkdir -p $INSTALL_DIR/.emacs.d > /dev/null 2>&1
-        fi
         copy_files EMACS[@]
         # Add extra setup things later if needed
 
@@ -214,6 +211,9 @@ main()
     echo
 
     install_tmux
+    echo
+
+    install_emacs
     echo
 
     install_vim
