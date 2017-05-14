@@ -47,7 +47,7 @@ files_exist()
 
     for file in ${files_array[@]}
     do
-        if [ -f "$INSTALL_DIR/$file" ]; then
+        if [ -e "$INSTALL_DIR/$file" ]; then
             existing_files+=( $file );
         fi
     done
@@ -189,7 +189,7 @@ install_zsh()
         #echo "export PATH=\$PATH:$PATH" >> $INSTALL_DIR/.zshrc
 
         # Add in custom theme
-        cp config/ember.zsh-theme ~/.oh-my-zsh/themes/
+        ln -s $PWD/config/ember.zsh-theme ~/.oh-my-zsh/themes/
 
         echo " -> Changing default shell to zsh..."
         chsh -s `which zsh`
