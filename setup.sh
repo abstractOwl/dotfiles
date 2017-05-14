@@ -13,7 +13,7 @@
 can_install="y" # TRUE if not found
 
 INSTALL_DIR=$HOME
-LOCAL_DIR="./dot_files"
+LOCAL_DIR="$PWD/dot_files"
 
 declare -a existing_files # Array used by files_exist()
 
@@ -33,7 +33,7 @@ copy_files()
     local files_array=(${!1})
     for file in ${files_array[@]}
     do
-        cp "$LOCAL_DIR/$file" "$INSTALL_DIR/$file"
+        ln -s "$LOCAL_DIR/$file" "$INSTALL_DIR/$file"
     done
 }
 
@@ -84,8 +84,8 @@ install_tmux()
     fi
 
     if [ "$can_install" = "y" ]; then
-        # Copy .vimrc over
-        echo " -> Copying .tmux.conf to $INSTALL_DIR/.tmux.conf..."
+        # Symlink .vimrc
+        echo " -> Symlinking .tmux.conf to $INSTALL_DIR/.tmux.conf..."
         copy_files TMUX[@]
         # Add extra setup things later if needd
 
@@ -106,8 +106,8 @@ install_emacs()
     fi
 
     if [ "$can_install" = "y" ]; then
-        # Copy .emacs.d over
-        echo " -> Copying emacs files to $INSTALL_DIR..."
+        # Symlink .emacs.d
+        echo " -> Symlinking emacs files to $INSTALL_DIR..."
         if [ ! -d $INSTALL_DIR/.emacs.d ]; then
             mkdir -p $INSTALL_DIR/.emacs.d > /dev/null 2>&1
         fi
@@ -131,8 +131,8 @@ install_vim()
     fi
 
     if [ "$can_install" = "y" ]; then
-        # Copy .vimrc over
-        echo " -> Copying .vimrc to $INSTALL_DIR/.vimrc..."
+        # Symlink .vimrc
+        echo " -> Symlink .vimrc to $INSTALL_DIR/.vimrc..."
         copy_files VIM[@]
 
         # Install Vundle
@@ -185,11 +185,11 @@ install_zsh()
                 $INSTALL_DIR/.oh-my-zsh > /dev/null 2>&1
         fi
 
-        # Copy .zshrc over
-        echo " -> Copying .zshrc to $INSTALL_DIR/.zshrc..."
+        # Symlink .zshrc
+        echo " -> Symlinking .zshrc to $INSTALL_DIR/.zshrc..."
         copy_files ZSH[@]
 
-        echo "export PATH=\$PATH:$PATH" >> $INSTALL_DIR/.zshrc
+        #echo "export PATH=\$PATH:$PATH" >> $INSTALL_DIR/.zshrc
 
         # Add in custom theme
         cp config/ember.zsh-theme ~/.oh-my-zsh/themes/
