@@ -44,7 +44,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(catimg colored-man debian extract git lol mvn tmux vi-mode web-search)
+plugins=(catimg colored-man-pages debian extract git lol mvn tmux vi-mode web-search)
 
 # Misc plugin params
 ZSH_TMUX_AUTOCONNECT=true
@@ -58,3 +58,5 @@ export ZSH_TMUX_AUTOSTART=true
 # Customize to your needs...
 export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/bin
 
+source /usr/local/bin/virtualenvwrapper.sh
+export PROJECT_HOME="/workspace/python"
