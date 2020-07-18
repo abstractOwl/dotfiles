@@ -19,25 +19,26 @@ Plugin 'gmarik/Vundle.vim'
 
 
 "" General Plugins """"""""""""""""""""""""""""""""""""""""
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'scrooloose/syntastic'
-Plugin 'Lokaltog/vim-powerline'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'vim-airline/vim-airline'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'kien/ctrlp.vim'
 Plugin 'matchit.zip'
-"Plugin 'scrooloose/nerdtree'
-Plugin 'kovisoft/slimv'
 Plugin 'rstacruz/sparkup'
+Plugin 'jceb/vim-orgmode'
+"Plugin 'scrooloose/nerdtree'
 "Plugin 'wincent/command-t'
 
 
 "" Clojure-specific """""""""""""""""""""""""""""""""""""""
 Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-fireplace'
-Plugin 'tpope/vim-leiningen'
+"Plugin 'tpope/vim-fireplace'
+"Plugin 'tpope/vim-leiningen'
 Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'guns/vim-clojure-highlight'
+"Plugin 'guns/vim-clojure-highlight'
+"Plugin 'kovisoft/slimv'
 
 
 "" Themes """"""""""""""""""""""""""""""""""""""""""""""""
@@ -75,6 +76,7 @@ nnoremap <silent> [B :blast<CR>
 
 """" Map Leader to Space
 let mapleader = "\<SPACE>"
+let maplocalleader = "\\"
 
 """" Unmap command history
 map q: <nop>
@@ -95,18 +97,23 @@ syntax on
 set t_ut=
 set t_Co=256
 set background=dark
-silent! color jellybeans
+"silent! color jellybeans
+silent! color molokai
 
 """" Powerline stuff
 set laststatus=2
 
 """" EasyMotion
-map <Leader> <Plug>(easymotion-prefix)
+"map <Leader> <Plug>(easymotion-prefix)
 
 """" Lisp opts
-au FileType lisp let b:loaded_delimitMate = 0
-let g:lisp_rainbow=1
-let g:slimv_disable_clojure=1
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+"au FileType lisp let b:loaded_delimitMate = 0
+"let g:lisp_rainbow=1
+"let g:slimv_disable_clojure=1
 
 """" Syntastic
 set statusline+=%#warningmsg#
@@ -118,9 +125,13 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+"""" vim-orgmode
+let g:org_heading_shade_leading_stars=1
+
+
 "" Misc Improvements """"""""""""""""""""""""""""""""""""""
 
-"""" Mark when exceeding 80 columns
+"""" Mark when exceeding 100 columns
 highlight ColorColumn ctermbg=yellow
 call matchadd('ColorColumn', '\%81v', 100)
 
