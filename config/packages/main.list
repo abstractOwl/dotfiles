@@ -1,5 +1,6 @@
 tmux
-vim
+vim-nox
+neovim
 git
 ruby
 zsh

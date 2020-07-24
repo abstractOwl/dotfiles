@@ -28,6 +28,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'matchit.zip'
 Plugin 'rstacruz/sparkup'
 Plugin 'jceb/vim-orgmode'
+Plugin 'tpope/vim-speeddating'
 "Plugin 'scrooloose/nerdtree'
 "Plugin 'wincent/command-t'
 
@@ -126,7 +127,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 """" vim-orgmode
-let g:org_heading_shade_leading_stars=1
+let g:org_heading_shade_leading_stars = 1
+let g:org_export_init_script = "~/.emacs.d/init.el"
 
 
 "" Misc Improvements """"""""""""""""""""""""""""""""""""""

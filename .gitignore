@@ -1,1 +1,3 @@
 *.swp
+dot_files/.emacs.d/elpa
+dot_files/.emacs.d/transient
