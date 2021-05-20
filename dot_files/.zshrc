@@ -57,6 +57,3 @@ export ZSH_TMUX_AUTOSTART=true
 
 # Customize to your needs...
 export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/bin
-
-source /usr/local/bin/virtualenvwrapper.sh
-export PROJECT_HOME="/workspace/python"
