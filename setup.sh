@@ -180,6 +180,9 @@ install_zsh()
             echo "-- Installing oh-my-zsh..."
             git clone https://github.com/robbyrussell/oh-my-zsh \
                 $INSTALL_DIR/.oh-my-zsh > /dev/null 2>&1
+            git clone https://github.com/zsh-users/zsh-autosuggestions \
+                $INSTALL_DIR/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+
         fi
 
         # Symlink .zshrc
